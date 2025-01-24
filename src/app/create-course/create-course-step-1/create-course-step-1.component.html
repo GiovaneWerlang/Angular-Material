@@ -17,7 +17,7 @@
     </mat-radio-group>
 
     <mat-form-field>
-        <mat-select formControlName="category" placeholder="Select category" multiple="true">
+        <mat-select formControlName="category" placeholder="Select category">
             <mat-option>None</mat-option>
 
             <mat-optgroup label="Beginners">
@@ -30,6 +30,16 @@
             <mat-option value="INTERMEDIATE">Intermediate</mat-option>
             <mat-option value="ADVANCED">Advanced</mat-option>
         </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <input matInput formControlName="releasedAt" placeholder="Release date" [matDatepicker]="releaseAtPicker">
+        <mat-datepicker-toggle matSuffix [for]="releaseAtPicker">
+
+        </mat-datepicker-toggle>
+        <mat-datepicker #releaseAtPicker [dateClass]="dateClass">
+
+        </mat-datepicker>
     </mat-form-field>
 
 </div>
