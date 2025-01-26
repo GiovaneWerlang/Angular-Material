@@ -1,6 +1,8 @@
 <div [formGroup]="form" class="course-details-form">
 
     <mat-form-field>
+        <mat-label>Title</mat-label>
+
         <input matInput placeholder="Course title" formControlName="title" #title>
         <mat-hint align="end">
             {{title.value.length}} / 60
@@ -17,6 +19,8 @@
     </mat-radio-group>
 
     <mat-form-field>
+        <mat-label>Category</mat-label>
+
         <mat-select formControlName="category" placeholder="Select category">
             <mat-option>None</mat-option>
 
@@ -33,6 +37,8 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
+        <mat-label>Release date</mat-label>
+
         <input matInput formControlName="releasedAt" placeholder="Release date" [matDatepicker]="releaseAtPicker">
         <mat-datepicker-toggle matSuffix [for]="releaseAtPicker">
 
@@ -45,6 +51,13 @@
     <mat-checkbox color="primary" formControlName="downloadsAllowed" [indeterminate]="true">
         Downloads allowed?
     </mat-checkbox>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description" formControlName="longDescription"
+        cdkTextareaAutosize [cdkAutosizeMinRows]="2" [cdkAutosizeMaxRows]="5">
+        </textarea>
+    </mat-form-field>
 
 </div>
 
