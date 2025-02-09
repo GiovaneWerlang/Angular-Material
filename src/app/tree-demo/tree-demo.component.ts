@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeNestedDataSource} from '@angular/material/tree';
 import {FlatTreeControl, NestedTreeControl} from '@angular/cdk/tree';
+import {MatIconModule} from '@angular/material/icon';
 
 interface CourseNode {
   name: string;
@@ -59,12 +60,15 @@ const TREE_DATA: CourseNode[] = [
 })
 export class TreeDemoComponent implements OnInit {
 
+  nestedDataSource = new MatTreeNestedDataSource<CourseNode>();
+  nestedTreeControl = new NestedTreeControl<CourseNode>(node => node.children);
 
   ngOnInit() {
+    this.nestedDataSource.data = TREE_DATA;
+  }
 
-
+  hasNestedChild(index: number, node: CourseNode){
+    return node?.children?.length > 0;
   }
 
 }
-
-
